@@ -1,12 +1,12 @@
 import { Cnpj } from '@models/cnpj.model'
-import { ICompany } from '@models/company.model'
+import { TCompany } from '@models/company.model'
 import { IValidator } from '@validation/validator'
 
-export class CompanyInputResquestValidator implements IValidator<ICompany> {
+export class CompanyInputResquestValidator implements IValidator<TCompany> {
   private errors: string[] = []
   private readonly EMAIL_REGEX = /^\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$/
 
-  validate({ name, email, cnpj, phone, address, number, city, uf, complement, secret }: ICompany): boolean {
+  validate({ name, email, cnpj, phone, address, number, city, uf, complement, secret }: TCompany): boolean {
     if (name === undefined) {
       this.errors.push('Name is undefined')
     } else if (name.trim() === '') {
